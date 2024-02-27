@@ -56,3 +56,15 @@ function createChart(data) {
     });
 }
 
+
+const searchBtn = document.getElementById('search-btn');
+searchBtn.addEventListener('click', async () => {
+    const city = cityInput.value.trim();
+    if (city) {
+        const data = await getWeatherData(city);
+        if (data) {
+            displayWeatherData(data);
+            createChart(data);
+        }
+    }
+});
